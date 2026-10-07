@@ -130,16 +130,3 @@ pytest -v
 - `test_generate_excel_report`: openpyxlで全6シートが正しく生成されるか
 
 ---
-
-## 💡 設計と思想（Python学習者向け解説）
-
-### 単一責任の原則 (Single Responsibility Principle)
-各モジュールを `loader` (読込), `validator` (検査), `aggregator` (集計), `excel_generator` (描画), `gui` (UI) に完全に分離しています。これにより、例えばUIをWeb化したり、Excel出力をPDF出力に変更したい場合でも、他のモジュールを壊さずに修正が可能です。
-
-### なぜ custom Exception を定義するのか？
-`CSVLoadError` や `ValidationError` を独自定義することで、Python標準の技術的なトレースバック（`KeyError` や `ValueError` など）をそのままユーザーに見せるのではなく、「原因」と「具体的な対処方法」を含んだ親切なメッセージをGUI上に表示できます。
-
----
-
-## 📜 ライセンス
-MIT License
